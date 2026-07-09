@@ -1,0 +1,14 @@
+.footer {
+  background: white;
+}
+
+.footer-image-container {
+  position: relative;
+  width: 100%;
+}
+
+.footer-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}

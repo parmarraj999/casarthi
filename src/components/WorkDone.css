@@ -1,0 +1,66 @@
+.work-done {
+  padding: 5rem 2rem;
+  background: white;
+}
+
+.work-done-container {
+  max-width: 60rem;
+  margin: 0 auto;
+}
+
+.work-done-title {
+  font-size: 2.25rem;
+  font-weight: bold;
+  text-align: center;
+  color: black;
+  margin-bottom: 3rem;
+}
+
+.work-done-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .work-done-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.stat-card {
+  position: relative;
+  background: white;
+  border: 1px solid #c6c6cd;
+  border-radius: 1rem;
+  box-shadow: 4px 4px 40px 3px rgba(0, 0, 0, 0.12);
+  padding: 2rem;
+  height: 223px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.stat-number {
+  font-size: 3rem;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #8c8c8c;
+  text-align: center;
+}
+
+.stat-icon {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  width: 4rem;
+  height: 4rem;
+  object-fit: contain;
+}
