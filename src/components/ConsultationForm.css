@@ -1,0 +1,457 @@
+.consultation-section {
+  padding: 6rem 2rem;
+  background-color: #fafbfc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.consultation-container {
+  width: 100%;
+  max-width: 52rem;
+  background: white;
+  border-radius: 1.25rem;
+  /* Premium Subtle Shadow */
+  box-shadow: 
+    0 10px 40px -10px rgba(0, 0, 0, 0.04), 
+    0 20px 50px -20px rgba(15, 23, 42, 0.06), 
+    0 1px 2px rgba(0, 0, 0, 0.01);
+  /* Clean Slate Border */
+  border: 1px solid #e2e8f0;
+  padding: 4rem 3.5rem;
+  position: relative;
+}
+
+/* NO top purple border line. Fully removed as requested. */
+
+.consultation-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.consultation-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #475569;
+  background-color: #f1f5f9;
+  padding: 0.35rem 1rem;
+  border-radius: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.consultation-title {
+  font-size: 2.25rem;
+  font-weight: 850;
+  color: #0f172a;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.02em;
+}
+
+.consultation-subtitle {
+  font-size: 1.05rem;
+  color: #64748b;
+  font-weight: 400;
+}
+
+.consultation-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Grid Layout for Row */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .form-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.form-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #0f172a;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+}
+
+.required-star {
+  color: #ef4444;
+  margin-left: 0.25rem;
+}
+
+/* Input Wrapper & Icon Styles */
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.input-wrapper.align-start {
+  align-items: flex-start;
+}
+
+.input-icon {
+  position: absolute;
+  left: 1.2rem;
+  color: #94a3b8;
+  pointer-events: none;
+  transition: all 0.2s ease;
+}
+
+.textarea-icon {
+  top: 1rem;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 0.9rem 1.2rem;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: #0f172a;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.5rem;
+  outline: none;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-input-with-icon {
+  padding-left: 3rem !important;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: #94a3b8;
+}
+
+.form-input:hover,
+.form-textarea:hover {
+  border-color: #94a3b8;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  border-color: #0f172a;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 4px rgba(15, 23, 42, 0.05);
+}
+
+.form-input:focus + .input-icon,
+.form-textarea:focus + .input-icon {
+  color: #0f172a;
+}
+
+.form-input.error,
+.form-textarea.error {
+  border-color: #ef4444;
+  background-color: #fef2f2;
+}
+
+.form-input.error:focus,
+.form-textarea.error:focus {
+  box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.08);
+}
+
+.form-hint {
+  font-size: 0.75rem;
+  color: #64748b;
+  margin-top: 0.15rem;
+  padding-left: 0.15rem;
+}
+
+.form-error-msg {
+  font-size: 0.75rem;
+  color: #ef4444;
+  margin-top: 0.15rem;
+  font-weight: 600;
+  padding-left: 0.15rem;
+}
+
+/* Category Grid Styles - Sleek Consulting Pills */
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  margin-top: 0.4rem;
+}
+
+@media (min-width: 640px) {
+  .category-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .category-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.category-pill {
+  padding: 0.8rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: center;
+  color: #475569;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.category-pill:hover {
+  background-color: #f8fafc;
+  border-color: #94a3b8;
+  color: #0f172a;
+}
+
+.category-pill.selected {
+  background-color: #0f172a;
+  border-color: #0f172a;
+  color: white;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+}
+
+/* Captcha Widget */
+.captcha-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  padding: 1rem 1.25rem;
+  max-width: 20rem;
+  margin-top: 0.25rem;
+}
+
+.captcha-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.captcha-checkbox-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.captcha-checkbox {
+  width: 22px;
+  height: 22px;
+  border: 2px solid #cbd5e1;
+  border-radius: 4px;
+  background: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.captcha-checkbox:hover {
+  border-color: #94a3b8;
+}
+
+.captcha-checkbox.checked {
+  background-color: #10b981;
+  border-color: #10b981;
+}
+
+.captcha-checkbox.checked::after {
+  content: '';
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  margin-top: -2px;
+}
+
+.captcha-checkbox.loading {
+  border-color: #0f172a;
+  border-top-color: transparent;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  animation: captcha-spin 0.8s linear infinite;
+}
+
+@keyframes captcha-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.captcha-label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #475569;
+  user-select: none;
+  cursor: pointer;
+}
+
+.captcha-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1rem;
+}
+
+.captcha-logo {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.captcha-logo-text {
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.captcha-links {
+  font-size: 0.5rem;
+  color: #94a3b8;
+}
+
+/* Submit Button */
+.submit-btn {
+  width: 100%;
+  padding: 1.1rem;
+  font-size: 1rem;
+  font-weight: 750;
+  color: white;
+  background-color: #0f172a;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+  margin-top: 1rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.submit-btn:hover {
+  background-color: #1e293b;
+  transform: translateY(-1.5px);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.25);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+}
+
+.submit-btn:disabled {
+  background-color: #f1f5f9;
+  color: #94a3b8;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Success Banner */
+.success-banner {
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 0.75rem;
+  padding: 3rem 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  animation: success-appear 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes success-appear {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.success-icon-wrapper {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background-color: #dcfce7;
+  color: #15803d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+}
+
+.success-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #14532d;
+  letter-spacing: -0.01em;
+}
+
+.success-desc {
+  font-size: 1rem;
+  color: #166534;
+  max-width: 28rem;
+  line-height: 1.6;
+}
+
+.success-reset-btn {
+  background-color: #166534;
+  color: white;
+  border: none;
+  padding: 0.8rem 2.25rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: all 0.2s ease;
+}
+
+.success-reset-btn:hover {
+  background-color: #14532d;
+  transform: translateY(-1.5px);
+}
+
+@media (max-width: 480px) {
+  .consultation-container {
+    padding: 2.5rem 1.75rem;
+  }
+  
+  .consultation-title {
+    font-size: 1.75rem;
+  }
+}
