@@ -6,6 +6,7 @@ export const servicesData = {
     bannerText: "Start your entrepreneurial journey with complete legal compliance and corporate structuring.",
     icon: "Briefcase",
     subServices: [
+      { name: "Sole Proprietorship Registration", description: "Register a single owner business with minimal compliance, fast setup, and complete control.", icon: "User" },
       { name: "Private Limited Company Registration", description: "Establish a separate legal entity with limited liability, preferred by investors and startups.", icon: "Building2" },
       { name: "LLP Registration", description: "Form a Limited Liability Partnership combining flexibility of partnership with limited liability.", icon: "Users" },
       { name: "OPC Registration", description: "Incorporate a One Person Company if you want sole ownership with corporate limited liability.", icon: "UserCheck" },

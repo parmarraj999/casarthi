@@ -11,6 +11,11 @@ function DynamicIcon({ name, size = 24, className = "" }) {
   return <IconComponent size={size} className={className} />;
 }
 
+// Helper to generate dynamic sub-service slug
+const getSubServiceSlug = (name) => {
+  return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+};
+
 export default function ServicePage() {
   const { slug } = useParams();
   const [service, setService] = useState(null);
@@ -83,18 +88,23 @@ export default function ServicePage() {
           </div>
 
           <div className="subservices-grid">
-            {service.subServices.map((sub, idx) => (
-              <div key={idx} className="subservice-card">
-                <div className="subservice-icon-wrapper">
-                  <DynamicIcon name={sub.icon} size={28} className="subservice-icon" />
-                </div>
-                <h3 className="subservice-title">{sub.name}</h3>
-                <p className="subservice-desc">{sub.description}</p>
-                <button onClick={scrollToForm} className="subservice-action-link">
-                  Learn More <span>→</span>
-                </button>
-              </div>
-            ))}
+            {service.subServices.map((sub, idx) => {
+              const subSlug = getSubServiceSlug(sub.name);
+              return (
+                <Link to={`/services/${slug}/${subSlug}`} key={idx} className="subservice-card-link">
+                  <div className="subservice-card">
+                    <div className="subservice-icon-wrapper">
+                      <DynamicIcon name={sub.icon} size={28} className="subservice-icon" />
+                    </div>
+                    <h3 className="subservice-title">{sub.name}</h3>
+                    <p className="subservice-desc">{sub.description}</p>
+                    <span className="subservice-action-link">
+                      Learn More <span>→</span>
+                    </span>
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>

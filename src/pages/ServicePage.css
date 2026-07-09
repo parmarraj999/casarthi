@@ -164,6 +164,10 @@
   .subservices-grid {
     grid-template-columns: repeat(3, 1fr);
   }
+}.subservice-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
 }
 
 .subservice-card {

@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import ServicePage from './pages/ServicePage';
+import SubServicePage from './pages/SubServicePage';
 import './App.css';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/services/:slug" element={<ServicePage />} />
+            <Route path="/services/:categorySlug/:subServiceSlug" element={<SubServicePage />} />
           </Routes>
         </main>
         <Footer />
