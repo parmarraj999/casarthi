@@ -4,6 +4,7 @@ import * as Icons from 'lucide-react';
 import { getSubServiceDetails } from '../data/subServicesData';
 import { servicesData } from '../data/servicesData';
 import ConsultationForm from '../components/ConsultationForm';
+import ProprietorshipDetails from './ProprietorshipDetails';
 import './SubServicePage.css';
 
 function DynamicIcon({ name, size = 20, className = "" }) {
@@ -50,6 +51,10 @@ export default function SubServicePage() {
       formElement.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  if (subServiceSlug === 'sole-proprietorship-registration') {
+    return <ProprietorshipDetails />;
+  }
 
   if (!data) {
     return (
