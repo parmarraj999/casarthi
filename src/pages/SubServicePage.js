@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import * as Icons from 'lucide-react';
 import { getSubServiceDetails } from '../data/subServicesData';
 import { servicesData } from '../data/servicesData';
 import ConsultationForm from '../components/ConsultationForm';
