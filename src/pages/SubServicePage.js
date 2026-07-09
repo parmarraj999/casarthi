@@ -4,7 +4,6 @@ import * as Icons from 'lucide-react';
 import { getSubServiceDetails } from '../data/subServicesData';
 import { servicesData } from '../data/servicesData';
 import ConsultationForm from '../components/ConsultationForm';
-import ProprietorshipDetails from './ProprietorshipDetails';
 import './SubServicePage.css';
 
 export default function SubServicePage() {
@@ -47,10 +46,6 @@ export default function SubServicePage() {
     }
   };
 
-  if (subServiceSlug === 'sole-proprietorship-registration') {
-    return <ProprietorshipDetails />;
-  }
-
   if (!data) {
     return (
       <div className="subservice-not-found">
@@ -63,7 +58,8 @@ export default function SubServicePage() {
 
   return (
     <div className="subservice-page">
-      {/* 1. Header Breadcrumbs */}
+      
+      {/* Breadcrumbs Header */}
       <div className="subservice-breadcrumbs-container">
         <div className="subservice-breadcrumbs">
           <Link to="/">Home</Link>
@@ -78,233 +74,223 @@ export default function SubServicePage() {
         </div>
       </div>
 
-      {/* 2. Premium Hero Section */}
+      {/* Hero Header Banner */}
       <section className="subservice-hero">
         <div className="subservice-hero-container">
           <div className="subservice-hero-grid">
             <div className="subservice-hero-left">
-              <span className="subservice-hero-badge">{data.tagline}</span>
-              <h1 className="subservice-hero-title">{data.title}</h1>
-              <p className="subservice-hero-desc">{data.subtitle}</p>
+              <span className="sub-badge">{data.tagline}</span>
+              <h1 className="sub-title">{data.title}</h1>
+              <p className="sub-subtitle">{data.subtitle}</p>
               
-              <div className="subservice-hero-features">
-                <div className="subservice-hero-feat-item">
-                  <Icons.CheckCircle size={18} className="text-emerald" />
-                  <span>100% Online & Hassle-Free Filing</span>
+              <div className="sub-hero-stats">
+                <div className="sub-stat-item">
+                  <span className="sub-stat-number">{data.price}</span>
+                  <span className="sub-stat-label">Professional Fee</span>
                 </div>
-                <div className="subservice-hero-feat-item">
-                  <Icons.CheckCircle size={18} className="text-emerald" />
-                  <span>Verified CA & Legal Experts Consultancy</span>
-                </div>
-                <div className="subservice-hero-feat-item">
-                  <Icons.CheckCircle size={18} className="text-emerald" />
-                  <span>No Hidden Charges</span>
+                <div className="sub-stat-item">
+                  <span className="sub-stat-number">
+                    {data.pricingTable && data.pricingTable[0] ? data.pricingTable[0].timeline : "3-7 Days"}
+                  </span>
+                  <span className="sub-stat-label">Average Processing</span>
                 </div>
               </div>
 
-              <div className="subservice-hero-actions">
-                <button onClick={scrollToForm} className="subservice-hero-btn-primary">
-                  Register Online Now
-                </button>
-                <button onClick={scrollToForm} className="subservice-hero-btn-secondary">
-                  Talk to Specialist
-                </button>
+              <div className="sub-hero-actions">
+                <button onClick={scrollToForm} className="sub-btn-primary">Register Online Now</button>
+                <button onClick={scrollToForm} className="sub-btn-outline">Consult Experts</button>
               </div>
             </div>
 
             <div className="subservice-hero-right">
-              <div className="subservice-pricing-card">
-                <div className="pricing-card-header">
-                  <h3>Professional Assistance</h3>
-                  <p>All-inclusive legal submission package</p>
-                </div>
-                <div className="pricing-card-price-section">
-                  <span className="pricing-price-tag">{data.price}</span>
-                  <span className="pricing-price-period">onwards</span>
-                </div>
-                <div className="pricing-card-divider"></div>
-                <ul className="pricing-card-list">
-                  <li>
-                    <Icons.Check size={16} /> Name Approval & Documentation
-                  </li>
-                  <li>
-                    <Icons.Check size={16} /> Government Portal Submissions
-                  </li>
-                  <li>
-                    <Icons.Check size={16} /> Dedicated Relationship Officer
-                  </li>
-                  <li>
-                    <Icons.Check size={16} /> Digital Copy Delivery
-                  </li>
-                </ul>
-                <button onClick={scrollToForm} className="pricing-card-action-btn">
-                  Get Started Today
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 3. Service Overview Section */}
-      <section className="subservice-overview-sec">
-        <div className="subservice-section-container">
-          <div className="overview-grid">
-            <div className="overview-left-desc">
-              <span className="section-pre-title">OVERVIEW</span>
-              <h2>What is {data.title}?</h2>
-              <p className="overview-para">{data.overview}</p>
-              
-              <div className="eligibility-card">
-                <h3>Eligibility Criteria</h3>
-                <ul className="eligibility-list">
-                  {data.eligibility.map((item, idx) => (
+              <div className="quick-checklist-card">
+                <h3>Pre-requisites Checklist</h3>
+                <ul>
+                  {data.documents && data.documents.slice(0, 3).map((doc, idx) => (
                     <li key={idx}>
-                      <Icons.CheckSquare size={18} className="eligibility-icon" />
-                      <span>{item}</span>
+                      <span className="checklist-bullet">{idx + 1}</span>
+                      <div>
+                        <strong>{doc.name}</strong>
+                        <p>{doc.desc}</p>
+                      </div>
                     </li>
                   ))}
                 </ul>
               </div>
             </div>
-
-            <div className="overview-right-chars">
-              <h3>Key Characteristics</h3>
-              <div className="characteristics-list">
-                {data.characteristics.map((char, idx) => (
-                  <div key={idx} className="char-item-card">
-                    <div className="char-item-icon-bubble">
-                      <Icons.Star size={18} />
-                    </div>
-                    <div>
-                      <h4>{char.title}</h4>
-                      <p>{char.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* 4. Document Checklist Section */}
-      <section className="documents-checklist-sec">
-        <div className="subservice-section-container">
-          <div className="section-header-left">
-            <span className="section-pre-title">DOCUMENTATION</span>
-            <h2>Required Checklist & Proofs</h2>
-            <p>Ensure you have these scanned copies ready to fast-track your registration process.</p>
-          </div>
-
-          <div className="documents-grid">
-            {data.documents.map((doc, idx) => (
-              <div key={idx} className="document-card">
-                <div className="document-card-top">
-                  <div className="document-icon-badge">
-                    <Icons.FileText size={22} />
-                  </div>
-                  <span className="document-category-tag">{doc.type}</span>
-                </div>
-                <h4 className="document-name">{doc.name}</h4>
-                <p className="document-desc">{doc.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 5. Pricing, Fees & Timeline Schedule */}
-      <section className="pricing-fees-sec">
-        <div className="subservice-section-container">
-          <div className="section-header-left">
-            <span className="section-pre-title">FEES & TIMELINE</span>
-            <h2>Transparent Charges & Duration</h2>
-            <p>We believe in 100% transparency. Here is the approximate fee schedule and government processing timelines.</p>
-          </div>
-
-          <div className="table-responsive-container">
-            <table className="fees-schedule-table">
-              <thead>
-                <tr>
-                  <th>Component / Registration Type</th>
-                  <th>Government Fees</th>
-                  <th>Professional Consultation</th>
-                  <th>Timeline / Duration</th>
-                </tr>
-              </thead>
-              <tbody>
-                {data.pricingTable.map((row, idx) => (
-                  <tr key={idx}>
-                    <td className="table-highlight-cell">{row.type}</td>
-                    <td>{row.govFee}</td>
-                    <td>{row.profFee}</td>
-                    <td className="table-timeline-cell">
-                      <Icons.Clock size={14} />
-                      <span>{row.timeline}</span>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      {/* 6. Step-by-Step Registration Process */}
-      <section className="subservice-steps-sec">
-        <div className="subservice-section-container">
-          <div className="section-header-centered-dark">
-            <span className="section-pre-title">PROCESS FLOW</span>
-            <h2>Steps to Register Online</h2>
-            <p>Our online portal makes registration quick and stress-free. Here is the step-by-step procedure.</p>
-          </div>
-
-          <div className="steps-flow-timeline">
-            {data.steps.map((step, idx) => (
-              <div key={idx} className="step-flow-card">
-                <div className="step-flow-bubble">
-                  {idx + 1}
-                </div>
-                <h4 className="step-flow-title">{step.title}</h4>
-                <p className="step-flow-desc">{step.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 7. Post-Registration Compliance Checklist */}
-      <section className="post-compliance-sec">
-        <div className="subservice-section-container">
-          <div className="compliance-banner-card">
-            <div className="compliance-banner-left">
-              <span className="compliance-banner-tag">COMPLIANCE</span>
-              <h2>Post-Registration Guidelines</h2>
-              <p>Registering your business is the first step. To maintain your active legal status, make sure you manage these annual compliance guidelines.</p>
-            </div>
+      {/* Main Content Layout (Left Columns Details, Right Sidebar Sticky) */}
+      <div className="sub-main-container">
+        <div className="sub-layout-grid">
+          
+          {/* Left Column Content */}
+          <div className="sub-content-left">
             
-            <div className="compliance-banner-right">
-              {data.compliance.map((item, idx) => (
-                <div key={idx} className="compliance-banner-item">
-                  <div className="compliance-item-check">
-                    <Icons.ShieldCheck size={20} />
-                  </div>
-                  <div>
-                    <h4>{item.name}</h4>
-                    <p>{item.desc}</p>
-                  </div>
+            {/* Section 1: Overview */}
+            <section className="sub-section">
+              <p className="intro-paragraph">{data.overview}</p>
+
+              <h2>What is {data.title} in India?</h2>
+              <p>
+                Establishing a compliant <strong>{data.title}</strong> ensures that your business gains legal recognition and smooth banking access. Our compliance team coordinates name approvals, license filing, and tax documentation online.
+              </p>
+
+              <h3>Key Characteristics & Benefits</h3>
+              <ul className="standard-list">
+                {data.characteristics && data.characteristics.map((char, idx) => (
+                  <li key={idx}>
+                    <strong>{char.title}: </strong> {char.desc}
+                  </li>
+                ))}
+              </ul>
+            </section>
+
+            {/* Section 2: Eligibility */}
+            <section className="sub-section">
+              <h2>What is the Eligibility for {data.title} in India?</h2>
+              <p>Before applying for registrations or licenses, ensure you satisfy the following standard criteria:</p>
+              
+              <ul className="standard-list">
+                {data.eligibility && data.eligibility.map((item, idx) => (
+                  <li key={idx}>{item}</li>
+                ))}
+              </ul>
+            </section>
+
+            {/* Section 3: Document Checklist */}
+            <section className="sub-section">
+              <h2>What is the Checklist Required for {data.title}?</h2>
+              <p>Ensure you have scanned soft copies of these documents ready for registration:</p>
+
+              <ul className="standard-list">
+                {data.documents && data.documents.map((doc, idx) => (
+                  <li key={idx}>
+                    <strong>{doc.name}</strong> ({doc.type}) — {doc.desc}
+                  </li>
+                ))}
+              </ul>
+            </section>
+
+            {/* Section 4: Fees & Charges */}
+            <section className="sub-section">
+              <h2>What are the Registration Fees & Cost Structure?</h2>
+              <p>Below is a transparent breakdown of government fees and professional advisory costs:</p>
+
+              <div className="table-wrapper">
+                <table className="indiafilings-table">
+                  <thead>
+                    <tr>
+                      <th>Component / Fee Type</th>
+                      <th>Government Fee</th>
+                      <th>Professional Fee</th>
+                      <th>Processing Time</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {data.pricingTable && data.pricingTable.map((row, idx) => (
+                      <tr key={idx}>
+                        <td>{row.type}</td>
+                        <td>{row.govFee}</td>
+                        <td>{row.profFee}</td>
+                        <td>{row.timeline}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+            {/* Section 5: Steps to Register */}
+            <section className="sub-section">
+              <h2>What are the Steps to Register Online?</h2>
+              <p>Here is our simplified process flow for completing your registration online:</p>
+
+              <ol className="ordered-list steps-list">
+                {data.steps && data.steps.map((step, idx) => (
+                  <li key={idx}>
+                    <strong>{step.title}:</strong> {step.desc}
+                  </li>
+                ))}
+              </ol>
+            </section>
+
+            {/* Section 6: Post-Compliance */}
+            <section className="sub-section">
+              <h2>What are the Post-Registration Compliances?</h2>
+              <p>To avoid interest charges and state penalties, make sure you comply with these recurring statutory return filing guidelines:</p>
+
+              <ul className="standard-list">
+                {data.compliance && data.compliance.map((item, idx) => (
+                  <li key={idx}>
+                    <strong>{item.name}: </strong> {item.desc}
+                  </li>
+                ))}
+              </ul>
+            </section>
+
+            {/* Section 7: Why Choose Us */}
+            <section className="sub-section">
+              <h2>Why Choose CA.Saarthi?</h2>
+              <p>We are a leading professional compliance network helping businesses register and scale seamlessly.</p>
+              
+              <ul className="standard-list">
+                <li><strong>Expert Assistance:</strong> Handled by experienced Chartered Accountants and legal attorneys.</li>
+                <li><strong>100% Transparent:</strong> Flat fee schedules with zero hidden charges.</li>
+                <li><strong>End-to-End Tracking:</strong> Monitor your licensing status in real-time.</li>
+              </ul>
+            </section>
+
+          </div>
+
+          {/* Right Column Sticky Sidebar */}
+          <div className="sub-sidebar-right">
+            <div className="sidebar-sticky-panel">
+              
+              <div className="consult-experts-card">
+                <h3>Need Assistance?</h3>
+                <p>Talk directly to our Chartered Accountants for name approvals and license setups.</p>
+                <button onClick={scrollToForm} className="sidebar-consult-btn">Consult Experts</button>
+              </div>
+
+              <div className="related-guides-card">
+                <h4>Related Advisory Guides</h4>
+                <ul>
+                  <li><a href="#consultation-form">Comprehensive Registration Guide</a></li>
+                  <li><a href="#consultation-form">Step-by-Step Business Licensing</a></li>
+                  <li><a href="#consultation-form">Statutory Compliance Calendar</a></li>
+                </ul>
+              </div>
+
+              <div className="states-cities-card">
+                <h4>State-wise Licensing Guides</h4>
+                <div className="states-list-scroll">
+                  <a href="#consultation-form">Andhra Pradesh</a>
+                  <a href="#consultation-form">Bihar</a>
+                  <a href="#consultation-form">Delhi NCR</a>
+                  <a href="#consultation-form">Gujarat</a>
+                  <a href="#consultation-form">Karnataka</a>
+                  <a href="#consultation-form">Maharashtra</a>
+                  <a href="#consultation-form">Punjab</a>
+                  <a href="#consultation-form">Tamil Nadu</a>
+                  <a href="#consultation-form">Uttar Pradesh</a>
+                  <a href="#consultation-form">West Bengal</a>
                 </div>
-              ))}
+              </div>
+
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* 8. Call to Action Consultation Form */}
-      <div id="consultation-form" className="subservice-form-wrapper">
+        </div>
+      </div>
+
+      {/* Booking form */}
+      <div id="consultation-form" className="sub-form-wrapper">
         <ConsultationForm />
       </div>
+
     </div>
   );
 }
