@@ -1,129 +1,92 @@
-# 🧪 SharpChem.in — Modern Chemistry Learning Platform
+# CA.Sarthi — Premium CA & Advisory Portal
 
-**SharpChem.in** is a modern, responsive web platform built using **React.js** that helps students learn Chemistry through class-wise topics, practice papers, mechanisms, and more — all in one place.
+CA.Sarthi is a modern, premium, and trustworthy corporate advisory website built to assist businesses and individuals with company registrations, tax filings, audit assurance, legal agreements, and corporate compliance in India.
 
----
-
-## 🚀 Features
-
-* 🎓 **Class-wise Content:** Organized for Classes 9–12
-* 🧾 **Practice Papers & PYQs:** Test your knowledge with real exam-style questions
-* ⚙️ **Mechanisms Section:** Understand organic and inorganic reaction mechanisms
-* ✍️ **Blog Section:** Learn chemistry tips, concepts, and updates
-* 🔐 **Authentication:** Login & Signup pages with clean, responsive UI
-* 📱 **Responsive Design:** Optimized for desktop, tablet, and mobile screens
-* 💙 **Modern UI:** Built with React + CSS3 using a consistent blue academic theme
+The portal features an elegant dark-slate and purple linear design system, responsive grids, and structured dynamic information panels similar to leading consulting firms like EY, PwC, Deloitte, and KPMG.
 
 ---
 
-## 🧩 Tech Stack
+## 🚀 Key Features
 
-| Technology                         | Purpose                       |
-| ---------------------------------- | ----------------------------- |
-| **React.js**                       | Frontend framework            |
-| **HTML5 / CSS3**                   | Structure and styling         |
-| **React Router DOM**               | Page navigation               |
-| **Firebase (optional)**            | Authentication / Data storage |
-| **Vite / Create React App**        | Development setup             |
-| **Google Fonts (Poppins / Inter)** | Typography                    |
+- **Redesigned Service Grid**: Interactive, modern service category cards with clean 3D graphics, hover elevations, and customized icons.
+- **Dynamic Multi-Level Routing**: Full URL routing powered by `react-router-dom`:
+  - `/` — Core landing page containing the Hero banner, specialized categories, statistical trust meters, and booking form.
+  - `/services/:slug` — Dedicated dynamic main categories overview (e.g. GST, ROC, Audit, Accounting).
+  - `/services/:categorySlug/:subServiceSlug` — Deep dynamic child sub-services page displaying checklists, steps, timelines, and statutory guidelines.
+- **Sole Proprietorship Bespoke Page**: Fully customized layout matching the exact content sections of *IndiaFilings* (PAN/Aadhaar document checklists, detailed pricing matrices, 6-step flow paths, and post-compliance guidelines).
+- **Premium Consultation Form**: High-converting lead capturing system featuring side-by-side flex inputs, Lucide icons, responsive category selection badges, and error boundary states.
+- **Persistent Layout Elements**: Fixed sticky header menu (`Navbar`) with dynamic routing states and a corporate 4-column `Footer` detailing bio descriptions, disclaimers, and links.
 
 ---
 
-## 📁 Folder Structure
+## 🛠️ Technology Stack
 
-```
-sharpchem/
-│
-├── src/
-│   ├── components/
-│   │   ├── HomePage.jsx
-│   │   ├── AcademicsPage.jsx
-│   │   ├── Login.jsx
-│   │   ├── Signup.jsx
-│   │   ├── Navbar.jsx
-│   │   ├── Footer.jsx
-│   │
-│   ├── styles/
-│   │   ├── HomePage.css
-│   │   ├── AcademicsPage.css
-│   │   ├── Login.css
-│   │   ├── Signup.css
-│   │   ├── Navbar.css
-│   │   ├── Footer.css
-│   │
-│   ├── App.js
-│   └── index.js
-│
-├── public/
-│   ├── index.html
-│   ├── logo.png
-│
-└── package.json
+- **Frontend Core**: React.js (Create React App environment)
+- **Routing**: React Router Dom (`react-router-dom`)
+- **Styling**: Vanilla CSS (Responsive Flexbox and Grid models)
+- **Icons**: Lucide React Icons (`lucide-react`)
+
+---
+
+## 📂 Project Directory Structure
+
+```text
+src/
+├── components/
+│   ├── ConsultationForm.js      # Booking lead form component
+│   ├── ConsultationForm.css     # Responsive shadow and focus styles
+│   ├── Footer.js                # 4-column corporate footer
+│   ├── Footer.css               # Footer grids and disclaimer styling
+│   ├── Hero.js                  # Hero tagline and action links
+│   ├── Hero.css                 # Slate-navy gradient backdrop styling
+│   ├── Navbar.js                # Sticky global header menu
+│   ├── Navbar.css               # Header layouts and active state transitions
+│   ├── Services.js              # Categories card list
+│   └── Services.css             # Grid settings and hover zoom rules
+├── data/
+│   ├── servicesData.js          # Central database for 12 categories
+│   └── subServicesData.js       # Checklists and timelines for sub-services
+├── pages/
+│   ├── HomePage.js              # Core landing route container
+│   ├── ServicePage.js           # Sub-services categories page
+│   ├── ServicePage.css          # timelines and accordion styles
+│   ├── ProprietorshipDetails.js # IndiaFilings layout replication page
+│   ├── ProprietorshipDetails.css# Table styling and sticky sidebar layouts
+│   ├── SubServicePage.js        # Fallback rendering template
+│   └── SubServicePage.css       # Subservices typography and spacing rules
+├── App.js                       # Central Router mapping configurations
+├── App.css                      # Global layout styling
+└── index.js                     # App bootstrapping entry point
 ```
 
 ---
 
-## ⚙️ Installation & Setup
+## 💻 Getting Started
 
-1. **Clone the repository**
+Follow these steps to run the CA.Sarthi project on your local machine:
 
-   ```bash
-   git clone https://github.com/yourusername/sharpchem.git
-   cd sharpchem
-   ```
+### 1. Clone the Repository
+```bash
+git clone https://github.com/parmarraj999/casarthi.git
+cd casarthi
+```
 
-2. **Install dependencies**
+### 2. Install Dependencies
+Perform a clean installation of all node modules:
+```bash
+npm ci
+# or
+npm install
+```
 
-   ```bash
-   npm install
-   ```
+### 3. Run Development Server
+Start the local server. The application will launch on **[http://localhost:3000](http://localhost:3000)**:
+```bash
+npm start
+```
 
-3. **Run the development server**
-
-   ```bash
-   npm start
-   ```
-
-4. **Build for production**
-
-   ```bash
-   npm run build
-   ```
-
----
-
-## 🧠 Future Enhancements
-
-* Integration with **Firebase Firestore** for real user data and progress tracking
-* Admin dashboard to upload and manage study materials
-* AI-powered chemistry problem solver
-* Bookmark and quiz history features
-
----
-
-## 🧑‍💻 Contributing
-
-Contributions are welcome!
-
-1. Fork the repository
-2. Create a new feature branch
-3. Commit your changes
-4. Submit a pull request
-
----
-
-## 🪪 License
-
-This project is licensed under the **MIT License** — free to use and modify with attribution.
-
----
-
-## ✉️ Contact
-
-**Developer:** Harshit Parmar
-📧 [developersucks@gmail.com](mailto:developersucks@gmail.com)
-🌐 [SharpChem.in](#)
-
----
-
-**"Learn Chemistry the Smart Way — with SharpChem.in"**
+### 4. Build for Production
+Generate the production bundle inside the `build/` folder:
+```bash
+npm run build
+```
