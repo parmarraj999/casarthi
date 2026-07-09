@@ -7,11 +7,6 @@ import ConsultationForm from '../components/ConsultationForm';
 import ProprietorshipDetails from './ProprietorshipDetails';
 import './SubServicePage.css';
 
-function DynamicIcon({ name, size = 20, className = "" }) {
-  const IconComponent = Icons[name] || Icons.HelpCircle;
-  return <IconComponent size={size} className={className} />;
-}
-
 export default function SubServicePage() {
   const { categorySlug, subServiceSlug } = useParams();
   const [data, setData] = useState(null);

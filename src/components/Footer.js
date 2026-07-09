@@ -15,7 +15,7 @@ export default function Footer() {
               A premium corporate advisory and taxation firm helping businesses, startups, and individuals manage their accounting, GST, income tax, and corporate compliance operations seamlessly.
             </p>
             <div className="footer-socials">
-              <a href="#" aria-label="LinkedIn"><Linkedin size={18} /></a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><Linkedin size={18} /></a>
             </div>
           </div>
 
@@ -65,11 +65,11 @@ export default function Footer() {
             © {new Date().getFullYear()} CA.Sarthi. All rights reserved.
           </p>
           <div className="footer-bottom-links">
-            <a href="#">Privacy Policy</a>
+            <Link to="/">Privacy Policy</Link>
             <span>•</span>
-            <a href="#">Terms of Service</a>
+            <Link to="/">Terms of Service</Link>
             <span>•</span>
-            <a href="#">Disclaimer</a>
+            <Link to="/">Disclaimer</Link>
           </div>
         </div>
       </div>

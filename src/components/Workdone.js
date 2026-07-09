@@ -1,4 +1,3 @@
-import react from 'react'
 import './WorkDone.css';
 
 function StatCard({ number, label, icon }) {
