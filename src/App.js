@@ -1,20 +1,28 @@
-import React from 'react'
-import Hero from './components/Hero';
-import Services from './components/Services';
-import WorkDone from './components/Workdone';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import FloatingButtons from './components/FloatingButtons';
+import HomePage from './pages/HomePage';
+import ServicePage from './pages/ServicePage';
+import SubServicePage from './pages/SubServicePage';
+import './App.css';
 
 function App() {
   return (
-   <div className="min-h-screen bg-white">
-      <Hero />
-      <Services />
-      <WorkDone />
-      <Footer />
-      {/* <FloatingButtons /> */}
-    </div>
-  )
+    <Router>
+      <div className="app-layout">
+        <Navbar />
+        <main className="main-content">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/services/:slug" element={<ServicePage />} />
+            <Route path="/services/:categorySlug/:subServiceSlug" element={<SubServicePage />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
+  );
 }
 
-export default App
+export default App;

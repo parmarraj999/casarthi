@@ -1,4 +1,4 @@
-import react from 'react'
+// Forced cache refresh
 import './WorkDone.css';
 
 function StatCard({ number, label, icon }) {
