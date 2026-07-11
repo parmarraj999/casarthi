@@ -12,7 +12,7 @@ function App() {
       <Services />
       <WorkDone />
       <Footer />
-      <FloatingButtons />
+      {/* <FloatingButtons /> */}
     </div>
   )
 }
