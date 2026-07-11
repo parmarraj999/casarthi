@@ -1,7 +1,7 @@
 .hero {
   position: relative;
   /* Premium Dark Slate/Indigo Gradient */
-  background: linear-gradient(135deg, #0b0c10 0%, #0f172a 40%, #1e1b4b 100%);
+  background: linear-gradient(135deg, #f9ce34 0%, #ee2a7b 25%, #6228d7 100%);
   color: white;
   min-height: 85vh;
   display: flex;
@@ -57,7 +57,8 @@
 }
 
 .hero-button {
-  background: linear-gradient(90deg, #6747c7, #8e2ee2);
+  /* background: linear-gradient(90deg, #6747c7, #8e2ee2); */
+  background-color: black;
   color: white;
   padding: 1.1rem 2.5rem;
   font-size: 1.05rem;
